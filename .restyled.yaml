@@ -14,7 +14,7 @@ auto: false
 
 commit_template: |
   Restyled by ${restyler.name}
-pull_requests: true
+pull_requests: false
 
 comments: false
 
