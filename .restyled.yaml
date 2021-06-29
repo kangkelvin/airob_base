@@ -1,0 +1,118 @@
+enabled: true
+
+exclude:
+  - "media/**/*"
+  - ".github/workflows/**/*" # https://github.com/restyled-io/restyler/issues/73
+
+changed_paths:
+  maximum: 1000
+  outcome: error
+
+remote_files: []
+
+auto: false
+
+commit_template: |
+  Restyled by ${restyler.name}
+pull_requests: true
+
+comments: false
+
+statuses:
+  skipped: true
+  differences: true
+  no_differences: true
+  error: true
+
+request_review: none
+
+labels: []
+
+ignore_authors:
+  - "*[bot]"
+
+restylers_version: stable
+
+restylers:
+  - clang-format:
+      image: 'restyled/restyler-clang-format:12.0.1'
+      command:
+        - clang-format
+        - '-i'
+      arguments: []
+      include:
+        - '**/*.c'
+        - '**/*.cc'
+        - '**/*.cpp'
+        - '**/*.cxx'
+        - '**/*.c++'
+        - '**/*.C'
+        - '**/*.cs'
+        - '**/*.h'
+        - '**/*.hh'
+        - '**/*.hpp'
+        - '**/*.hxx'
+        - '**/*.h++'
+        - '**/*.H'
+        - '**/*.java'
+        - '**/*.js'
+        - '**/*.m'
+      interpreters: []
+  - autopep8:
+      image: 'restyled/restyler-autopep8:v1.5.7'
+      command:
+        - autopep8
+        - '--in-place'
+      arguments: []
+      include:
+        - '**/*.py'
+      interpreters:
+        - python
+  - prettier-json:
+      image: 'restyled/restyler-prettier:v2.3.1'
+      command:
+        - prettier
+        - '--write'
+      arguments: []
+      include:
+        - '**/*.json'
+      interpreters: []
+  - prettier-markdown:
+      image: 'restyled/restyler-prettier:v2.3.1'
+      command:
+        - prettier
+        - '--write'
+      arguments:
+        - '--print-width'
+        - '80'
+        - '--prose-wrap'
+        - always
+      include:
+        - '**/*.md'
+        - '**/*.markdown'
+      interpreters: []
+  - prettier-yaml:
+      image: 'restyled/restyler-prettier:v2.3.1'
+      command:
+        - prettier
+        - '--write'
+      arguments: []
+      include:
+        - '**/*.yml'
+        - '**/*.yaml'
+      interpreters: []
+  - whitespace:
+      image: 'restyled/restyler-whitespace:v0.2.0.0'
+      command:
+        - whitespace
+      arguments: []
+      include:
+        - '**/*'
+        - '!**/*.gif'
+        - '!**/*.ico'
+        - '!**/*.jpeg'
+        - '!**/*.jpg'
+        - '!**/*.pdf'
+        - '!**/*.png'
+        - '!**/fonts/**/*'
+      interpreters: []
