@@ -21,6 +21,7 @@ pull_request_rules:
         - files~=^infra/CMakeModules/
     actions:
       close:
+        message: This pull request has been automatically closed because it changes files that are in the disallowed list defined in .github/mergify.yml
   - name: merge with queue when all requested reviews are valid and checkboxes are checked
     conditions:
       - base=master
