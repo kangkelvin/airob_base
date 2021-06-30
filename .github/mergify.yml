@@ -1,0 +1,51 @@
+queue_rules:
+  - name: default
+    conditions:
+      - check-success=CodeFactor
+      - check-success=restyled
+      - check-success=CodeImprover
+      - check-success=CommitCheck
+      - check-success=guardrails/scan
+
+pull_request_rules:
+  - name: remove outdated reviews
+    conditions:
+      - base=master
+    actions:
+      dismiss_reviews:
+        message: This pull request has been modified, reviews are reset
+  - name: disallow changing a file
+    conditions:
+      - or:
+        - files=.clang-format
+        - files=infra/CMakeModules/
+    actions:
+      close:
+  - name: merge with queue when all requested reviews are valid and checkboxes are checked
+    conditions:
+      - base=master
+      - -conflict
+      - -draft
+      - "#approved-reviews-by>=1"
+      - "#review-requested=0"
+      - "#changes-requested-reviews-by=0"
+      - body~=(?m)^\[X\] Name the PR correctly by adding the issue ID. e.g. `Fix #101: this is a pr message`
+      - body~=(?m)^\[X\] Commits have been rebased and condensed, and have proper commit message
+      - body~=(?m)^\[X\] Tests for the changes have been added (for bug fixes / features)
+      - body~=(?m)^\[X\] Docs have been reviewed and added / updated if needed (for bug fixes / features)
+      - body~=(?m)^\[X\] Code have been autoformatted
+      - body~=(?m)^\[X\] Github Labels have been selected
+      - body~=(?m)^\[X\] Reviewers and code owners are tagged and notified
+      - label!=duplicate
+      - label!=wontfix
+      - or:
+        - label=bug
+        - label=docs
+        - label=enh
+      - or:
+        - label=P1
+        - label=P2
+        - label=P3
+    actions:
+        queue:
+          name: default
