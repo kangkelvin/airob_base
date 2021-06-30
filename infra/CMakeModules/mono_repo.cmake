@@ -7,7 +7,7 @@ macro(load_all_components)
     file( GLOB_RECURSE project_files    component.cmake )
     _load_component_list("${project_files}")
 endmacro()
-
+#test
 ######### import  ########################################
 # replacement of find_package for monorepo build system
 # use it in your CMakeLists.txt to declare dependency to another
