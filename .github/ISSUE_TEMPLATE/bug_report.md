@@ -3,8 +3,7 @@ name: Bug report
 about: generic bug report
 title: "[BUG][module_name]"
 labels: bug
-assignees: ''
-
+assignees: ""
 ---
 
 **Describe the bug**
@@ -16,21 +15,24 @@ Urgency: 1 - 5 (1 means we can afford to wait, 5 means we want it right now)
 
 **To Reproduce**
 Steps to reproduce the behavior:
-1. Go to 'blah'
+
+1. Go to '...'
 2. Launch 'this and that'
-3. When this scenario happens then '....'
+3. When this scenario happens then '...'
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
 **Environment:**
- - OS: Ubuntu20
- - ROS: Foxy
- - Other important files/libraries (CUDA, OpenCV, etc) with version number
 
-**Hardware (if applicable):**
- - CPU: Intel i7 10700?
- - GPU: Nvidia RTX 2070?
+- OS: Ubuntu20
+- ROS: Foxy
+- Other important files/libraries (CUDA, OpenCV, etc) with version number
+
+**Hardware (if applicable, otherwise remove section):**
+
+- CPU: e.g. Intel i7 10700?
+- GPU: e.g. Nvidia RTX 2070?
 
 **Additional context**
 Add any other context about the problem here.

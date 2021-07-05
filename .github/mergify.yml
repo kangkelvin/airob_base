@@ -18,7 +18,7 @@ pull_request_rules:
     conditions:
       - or:
         - files=.clang-format
-        - files~=^infra/CMakeModules/
+        - files~=^.github/
     actions:
       delete_head_branch:
       close:
