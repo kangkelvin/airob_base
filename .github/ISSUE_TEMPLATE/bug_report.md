@@ -21,18 +21,18 @@ Steps to reproduce the behavior:
 3. When this scenario happens then '...'
 
 **Expected behavior**
-A clear and concise description of what you expected to happen.
+A clear and concise description of what should have happened instead.
 
 **Environment:**
 
-- OS: Ubuntu20
-- ROS: Foxy
-- Other important files/libraries (CUDA, OpenCV, etc) with version number
+- OS: Ubuntu18 x86
+- Other relevant files/libraries (CUDA, OpenCV, etc) with version number
 
 **Hardware (if applicable, otherwise remove section):**
 
-- CPU: e.g. Intel i7 10700?
-- GPU: e.g. Nvidia RTX 2070?
+- CPU/GPU:
+- MCU:
+- Sensor:
 
 **Additional context**
 Add any other context about the problem here.
